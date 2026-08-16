@@ -50,7 +50,7 @@ export function LiveCard({ live, wide = false }: { live: Live; wide?: boolean })
       params={{ liveId: live.id }}
       className={cn(
         "group relative block shrink-0 overflow-hidden rounded-2xl bg-surface",
-        wide ? "w-full" : "w-40",
+        wide ? "w-full" : "w-48",
       )}
     >
       <img
