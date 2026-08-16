@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CarrinhoRouteImport } from './routes/carrinho'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as CriarRouteImport } from './routes/criar'
+import { Route as ExplorarRouteImport } from './routes/explorar'
+import { Route as LojaRouteImport } from './routes/loja'
+import { Route as PedidosRouteImport } from './routes/pedidos'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as LiveLiveIdRouteImport } from './routes/live.$liveId'
+import { Route as PedidoOrderIdRouteImport } from './routes/pedido.$orderId'
+import { Route as ProdutoProductIdRouteImport } from './routes/produto.$productId'
+import { Route as VendedorStoreIdRouteImport } from './routes/vendedor.$storeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CarrinhoRoute = CarrinhoRouteImport.update({
+  id: '/carrinho',
+  path: '/carrinho',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CriarRoute = CriarRouteImport.update({
+  id: '/criar',
+  path: '/criar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExplorarRoute = ExplorarRouteImport.update({
+  id: '/explorar',
+  path: '/explorar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojaRoute = LojaRouteImport.update({
+  id: '/loja',
+  path: '/loja',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidosRoute = PedidosRouteImport.update({
+  id: '/pedidos',
+  path: '/pedidos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveLiveIdRoute = LiveLiveIdRouteImport.update({
+  id: '/live/$liveId',
+  path: '/live/$liveId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidoOrderIdRoute = PedidoOrderIdRouteImport.update({
+  id: '/pedido/$orderId',
+  path: '/pedido/$orderId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutoProductIdRoute = ProdutoProductIdRouteImport.update({
+  id: '/produto/$productId',
+  path: '/produto/$productId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VendedorStoreIdRoute = VendedorStoreIdRouteImport.update({
+  id: '/vendedor/$storeId',
+  path: '/vendedor/$storeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/checkout': typeof CheckoutRoute
+  '/criar': typeof CriarRoute
+  '/explorar': typeof ExplorarRoute
+  '/loja': typeof LojaRoute
+  '/pedidos': typeof PedidosRoute
+  '/perfil': typeof PerfilRoute
+  '/live/$liveId': typeof LiveLiveIdRoute
+  '/pedido/$orderId': typeof PedidoOrderIdRoute
+  '/produto/$productId': typeof ProdutoProductIdRoute
+  '/vendedor/$storeId': typeof VendedorStoreIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/checkout': typeof CheckoutRoute
+  '/criar': typeof CriarRoute
+  '/explorar': typeof ExplorarRoute
+  '/loja': typeof LojaRoute
+  '/pedidos': typeof PedidosRoute
+  '/perfil': typeof PerfilRoute
+  '/live/$liveId': typeof LiveLiveIdRoute
+  '/pedido/$orderId': typeof PedidoOrderIdRoute
+  '/produto/$productId': typeof ProdutoProductIdRoute
+  '/vendedor/$storeId': typeof VendedorStoreIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/checkout': typeof CheckoutRoute
+  '/criar': typeof CriarRoute
+  '/explorar': typeof ExplorarRoute
+  '/loja': typeof LojaRoute
+  '/pedidos': typeof PedidosRoute
+  '/perfil': typeof PerfilRoute
+  '/live/$liveId': typeof LiveLiveIdRoute
+  '/pedido/$orderId': typeof PedidoOrderIdRoute
+  '/produto/$productId': typeof ProdutoProductIdRoute
+  '/vendedor/$storeId': typeof VendedorStoreIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/carrinho'
+    | '/checkout'
+    | '/criar'
+    | '/explorar'
+    | '/loja'
+    | '/pedidos'
+    | '/perfil'
+    | '/live/$liveId'
+    | '/pedido/$orderId'
+    | '/produto/$productId'
+    | '/vendedor/$storeId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/carrinho'
+    | '/checkout'
+    | '/criar'
+    | '/explorar'
+    | '/loja'
+    | '/pedidos'
+    | '/perfil'
+    | '/live/$liveId'
+    | '/pedido/$orderId'
+    | '/produto/$productId'
+    | '/vendedor/$storeId'
+  id:
+    | '__root__'
+    | '/'
+    | '/carrinho'
+    | '/checkout'
+    | '/criar'
+    | '/explorar'
+    | '/loja'
+    | '/pedidos'
+    | '/perfil'
+    | '/live/$liveId'
+    | '/pedido/$orderId'
+    | '/produto/$productId'
+    | '/vendedor/$storeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CarrinhoRoute: typeof CarrinhoRoute
+  CheckoutRoute: typeof CheckoutRoute
+  CriarRoute: typeof CriarRoute
+  ExplorarRoute: typeof ExplorarRoute
+  LojaRoute: typeof LojaRoute
+  PedidosRoute: typeof PedidosRoute
+  PerfilRoute: typeof PerfilRoute
+  LiveLiveIdRoute: typeof LiveLiveIdRoute
+  PedidoOrderIdRoute: typeof PedidoOrderIdRoute
+  ProdutoProductIdRoute: typeof ProdutoProductIdRoute
+  VendedorStoreIdRoute: typeof VendedorStoreIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carrinho': {
+      id: '/carrinho'
+      path: '/carrinho'
+      fullPath: '/carrinho'
+      preLoaderRoute: typeof CarrinhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/criar': {
+      id: '/criar'
+      path: '/criar'
+      fullPath: '/criar'
+      preLoaderRoute: typeof CriarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explorar': {
+      id: '/explorar'
+      path: '/explorar'
+      fullPath: '/explorar'
+      preLoaderRoute: typeof ExplorarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loja': {
+      id: '/loja'
+      path: '/loja'
+      fullPath: '/loja'
+      preLoaderRoute: typeof LojaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedidos': {
+      id: '/pedidos'
+      path: '/pedidos'
+      fullPath: '/pedidos'
+      preLoaderRoute: typeof PedidosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live/$liveId': {
+      id: '/live/$liveId'
+      path: '/live/$liveId'
+      fullPath: '/live/$liveId'
+      preLoaderRoute: typeof LiveLiveIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedido/$orderId': {
+      id: '/pedido/$orderId'
+      path: '/pedido/$orderId'
+      fullPath: '/pedido/$orderId'
+      preLoaderRoute: typeof PedidoOrderIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto/$productId': {
+      id: '/produto/$productId'
+      path: '/produto/$productId'
+      fullPath: '/produto/$productId'
+      preLoaderRoute: typeof ProdutoProductIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vendedor/$storeId': {
+      id: '/vendedor/$storeId'
+      path: '/vendedor/$storeId'
+      fullPath: '/vendedor/$storeId'
+      preLoaderRoute: typeof VendedorStoreIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CarrinhoRoute: CarrinhoRoute,
+  CheckoutRoute: CheckoutRoute,
+  CriarRoute: CriarRoute,
+  ExplorarRoute: ExplorarRoute,
+  LojaRoute: LojaRoute,
+  PedidosRoute: PedidosRoute,
+  PerfilRoute: PerfilRoute,
+  LiveLiveIdRoute: LiveLiveIdRoute,
+  PedidoOrderIdRoute: PedidoOrderIdRoute,
+  ProdutoProductIdRoute: ProdutoProductIdRoute,
+  VendedorStoreIdRoute: VendedorStoreIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
