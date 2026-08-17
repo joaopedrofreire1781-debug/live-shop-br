@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AoVivoRouteImport } from './routes/ao-vivo'
+import { Route as AuctionsRouteImport } from './routes/auctions'
 import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CriarRouteImport } from './routes/criar'
@@ -17,6 +19,7 @@ import { Route as ExplorarRouteImport } from './routes/explorar'
 import { Route as LojaRouteImport } from './routes/loja'
 import { Route as PedidosRouteImport } from './routes/pedidos'
 import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as AuctionAuctionIdRouteImport } from './routes/auction.$auctionId'
 import { Route as LiveLiveIdRouteImport } from './routes/live.$liveId'
 import { Route as PedidoOrderIdRouteImport } from './routes/pedido.$orderId'
 import { Route as ProdutoProductIdRouteImport } from './routes/produto.$productId'
@@ -25,6 +28,16 @@ import { Route as VendedorStoreIdRouteImport } from './routes/vendedor.$storeId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AoVivoRoute = AoVivoRouteImport.update({
+  id: '/ao-vivo',
+  path: '/ao-vivo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuctionsRoute = AuctionsRouteImport.update({
+  id: '/auctions',
+  path: '/auctions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CarrinhoRoute = CarrinhoRouteImport.update({
@@ -62,6 +75,11 @@ const PerfilRoute = PerfilRouteImport.update({
   path: '/perfil',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuctionAuctionIdRoute = AuctionAuctionIdRouteImport.update({
+  id: '/auction/$auctionId',
+  path: '/auction/$auctionId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LiveLiveIdRoute = LiveLiveIdRouteImport.update({
   id: '/live/$liveId',
   path: '/live/$liveId',
@@ -85,6 +103,8 @@ const VendedorStoreIdRoute = VendedorStoreIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ao-vivo': typeof AoVivoRoute
+  '/auctions': typeof AuctionsRoute
   '/carrinho': typeof CarrinhoRoute
   '/checkout': typeof CheckoutRoute
   '/criar': typeof CriarRoute
@@ -92,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/loja': typeof LojaRoute
   '/pedidos': typeof PedidosRoute
   '/perfil': typeof PerfilRoute
+  '/auction/$auctionId': typeof AuctionAuctionIdRoute
   '/live/$liveId': typeof LiveLiveIdRoute
   '/pedido/$orderId': typeof PedidoOrderIdRoute
   '/produto/$productId': typeof ProdutoProductIdRoute
@@ -99,6 +120,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ao-vivo': typeof AoVivoRoute
+  '/auctions': typeof AuctionsRoute
   '/carrinho': typeof CarrinhoRoute
   '/checkout': typeof CheckoutRoute
   '/criar': typeof CriarRoute
@@ -106,6 +129,7 @@ export interface FileRoutesByTo {
   '/loja': typeof LojaRoute
   '/pedidos': typeof PedidosRoute
   '/perfil': typeof PerfilRoute
+  '/auction/$auctionId': typeof AuctionAuctionIdRoute
   '/live/$liveId': typeof LiveLiveIdRoute
   '/pedido/$orderId': typeof PedidoOrderIdRoute
   '/produto/$productId': typeof ProdutoProductIdRoute
@@ -114,6 +138,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ao-vivo': typeof AoVivoRoute
+  '/auctions': typeof AuctionsRoute
   '/carrinho': typeof CarrinhoRoute
   '/checkout': typeof CheckoutRoute
   '/criar': typeof CriarRoute
@@ -121,6 +147,7 @@ export interface FileRoutesById {
   '/loja': typeof LojaRoute
   '/pedidos': typeof PedidosRoute
   '/perfil': typeof PerfilRoute
+  '/auction/$auctionId': typeof AuctionAuctionIdRoute
   '/live/$liveId': typeof LiveLiveIdRoute
   '/pedido/$orderId': typeof PedidoOrderIdRoute
   '/produto/$productId': typeof ProdutoProductIdRoute
@@ -130,6 +157,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ao-vivo'
+    | '/auctions'
     | '/carrinho'
     | '/checkout'
     | '/criar'
@@ -137,6 +166,7 @@ export interface FileRouteTypes {
     | '/loja'
     | '/pedidos'
     | '/perfil'
+    | '/auction/$auctionId'
     | '/live/$liveId'
     | '/pedido/$orderId'
     | '/produto/$productId'
@@ -144,6 +174,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ao-vivo'
+    | '/auctions'
     | '/carrinho'
     | '/checkout'
     | '/criar'
@@ -151,6 +183,7 @@ export interface FileRouteTypes {
     | '/loja'
     | '/pedidos'
     | '/perfil'
+    | '/auction/$auctionId'
     | '/live/$liveId'
     | '/pedido/$orderId'
     | '/produto/$productId'
@@ -158,6 +191,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ao-vivo'
+    | '/auctions'
     | '/carrinho'
     | '/checkout'
     | '/criar'
@@ -165,6 +200,7 @@ export interface FileRouteTypes {
     | '/loja'
     | '/pedidos'
     | '/perfil'
+    | '/auction/$auctionId'
     | '/live/$liveId'
     | '/pedido/$orderId'
     | '/produto/$productId'
@@ -173,6 +209,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AoVivoRoute: typeof AoVivoRoute
+  AuctionsRoute: typeof AuctionsRoute
   CarrinhoRoute: typeof CarrinhoRoute
   CheckoutRoute: typeof CheckoutRoute
   CriarRoute: typeof CriarRoute
@@ -180,6 +218,7 @@ export interface RootRouteChildren {
   LojaRoute: typeof LojaRoute
   PedidosRoute: typeof PedidosRoute
   PerfilRoute: typeof PerfilRoute
+  AuctionAuctionIdRoute: typeof AuctionAuctionIdRoute
   LiveLiveIdRoute: typeof LiveLiveIdRoute
   PedidoOrderIdRoute: typeof PedidoOrderIdRoute
   ProdutoProductIdRoute: typeof ProdutoProductIdRoute
@@ -193,6 +232,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ao-vivo': {
+      id: '/ao-vivo'
+      path: '/ao-vivo'
+      fullPath: '/ao-vivo'
+      preLoaderRoute: typeof AoVivoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auctions': {
+      id: '/auctions'
+      path: '/auctions'
+      fullPath: '/auctions'
+      preLoaderRoute: typeof AuctionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/carrinho': {
@@ -244,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PerfilRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auction/$auctionId': {
+      id: '/auction/$auctionId'
+      path: '/auction/$auctionId'
+      fullPath: '/auction/$auctionId'
+      preLoaderRoute: typeof AuctionAuctionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/live/$liveId': {
       id: '/live/$liveId'
       path: '/live/$liveId'
@@ -277,6 +337,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AoVivoRoute: AoVivoRoute,
+  AuctionsRoute: AuctionsRoute,
   CarrinhoRoute: CarrinhoRoute,
   CheckoutRoute: CheckoutRoute,
   CriarRoute: CriarRoute,
@@ -284,6 +346,7 @@ const rootRouteChildren: RootRouteChildren = {
   LojaRoute: LojaRoute,
   PedidosRoute: PedidosRoute,
   PerfilRoute: PerfilRoute,
+  AuctionAuctionIdRoute: AuctionAuctionIdRoute,
   LiveLiveIdRoute: LiveLiveIdRoute,
   PedidoOrderIdRoute: PedidoOrderIdRoute,
   ProdutoProductIdRoute: ProdutoProductIdRoute,
