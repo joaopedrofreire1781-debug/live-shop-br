@@ -8,7 +8,7 @@ export function LiveBadge({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded-md bg-live px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-live-foreground",
+        "inline-flex items-center gap-1.5 rounded-md bg-live px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-live-foreground",
         className,
       )}
     >
@@ -49,76 +49,56 @@ export function LiveCard({ live, wide = false }: { live: Live; wide?: boolean })
       to="/live/$liveId"
       params={{ liveId: live.id }}
       className={cn(
-        "group relative block shrink-0 overflow-hidden rounded-2xl bg-surface",
-        wide ? "w-full" : "w-48",
+        "group relative block shrink-0 overflow-hidden rounded-2xl bg-surface transition-transform duration-200 hover:-translate-y-0.5",
+        wide ? "w-full" : "w-56 sm:w-64",
       )}
     >
       <img
         src={live.thumbnail}
         alt={live.title}
         loading="lazy"
-        className={cn(
-          "w-full object-cover transition-transform duration-300 group-active:scale-105",
-          wide ? "h-56" : "h-56",
-        )}
+        className="aspect-3/4 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
-      <div className="absolute left-2 top-2 flex items-center gap-1.5">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+      <div className="absolute left-3 top-3 flex items-center gap-1.5">
         <LiveBadge />
-        <span className="inline-flex items-center gap-1 rounded-md bg-background/70 px-1.5 py-0.5 text-[10px] font-semibold backdrop-blur">
-          <Eye className="h-3 w-3" /> {compact(live.viewers)}
-        </span>
       </div>
-      <span className="absolute right-2 top-2 rounded-md bg-background/70 px-1.5 py-0.5 text-[10px] font-medium backdrop-blur">
-        {live.category}
+      <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-md bg-black/50 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
+        <Eye className="h-3 w-3" /> {compact(live.viewers)}
       </span>
-      <div className="absolute inset-x-0 bottom-0 p-2">
-        <div className="flex min-w-0 items-center gap-1.5">
+      <div className="absolute inset-x-0 bottom-0 space-y-1.5 p-3">
+        <div className="flex min-w-0 items-center gap-2">
           <Avatar initials={store.avatar} size="sm" />
-          <span className="truncate text-xs font-semibold">{store.name}</span>
+          <span className="truncate text-xs font-semibold text-white">{store.name}</span>
         </div>
-        <p className="mt-1 line-clamp-2 text-[11px] text-muted-foreground">{live.title}</p>
+        <p className="line-clamp-2 text-sm font-medium text-white/90">{live.title}</p>
       </div>
     </Link>
   );
 }
 
 export function ProductCard({ product }: { product: Product }) {
-  const discount = product.old_price
-    ? Math.round((1 - product.price / product.old_price) * 100)
-    : 0;
+  const store = getStore(product.store_id);
   return (
     <Link
       to="/produto/$productId"
       params={{ productId: product.id }}
-      className="group block overflow-hidden rounded-2xl bg-surface"
+      className="group block overflow-hidden rounded-2xl soft-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)]"
     >
-      <div className="relative">
+      <div className="aspect-square overflow-hidden bg-surface">
         <img
           src={product.images[0]}
           alt={product.name}
           loading="lazy"
-          className="h-40 w-full object-cover transition-transform duration-300 group-active:scale-105"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
         />
-        {discount > 0 && (
-          <span className="absolute left-2 top-2 rounded-md bg-accent px-1.5 py-0.5 text-[10px] font-bold text-accent-foreground">
-            -{discount}%
-          </span>
-        )}
       </div>
-      <div className="space-y-1 p-2.5">
-        <p className="line-clamp-2 text-xs font-medium leading-snug">{product.name}</p>
-        <div className="flex items-baseline gap-1.5">
-          <span className="text-sm font-bold text-primary">{brl(product.price)}</span>
-          {product.old_price && (
-            <span className="text-[10px] text-muted-foreground line-through">
-              {brl(product.old_price)}
-            </span>
-          )}
-        </div>
-        <p className="flex items-center gap-1 text-[10px] text-muted-foreground">
-          <Star className="h-3 w-3 fill-warning text-warning" /> {product.rating} ·{" "}
-          {compact(product.sold)} vendidos
+      <div className="space-y-1.5 p-3.5">
+        <p className="line-clamp-2 text-sm font-medium leading-snug">{product.name}</p>
+        <p className="text-base font-bold">{brl(product.price)}</p>
+        <p className="truncate text-xs text-muted-foreground">{store.name}</p>
+        <p className="flex items-center gap-1 text-xs text-muted-foreground">
+          <Star className="h-3 w-3 fill-warning text-warning" /> {product.rating}
         </p>
       </div>
     </Link>
@@ -130,15 +110,15 @@ export function StoreRow({ store }: { store: Store }) {
     <Link
       to="/vendedor/$storeId"
       params={{ storeId: store.id }}
-      className="flex min-w-0 items-center gap-3 rounded-2xl bg-surface p-3"
+      className="flex min-w-0 items-center gap-3 rounded-2xl soft-card p-3 transition-colors hover:bg-surface"
     >
       <Avatar initials={store.avatar} />
       <div className="min-w-0 flex-1">
         <p className="flex items-center gap-1 truncate text-sm font-semibold">
           {store.name}
-          {store.verified && <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-accent" />}
+          {store.verified && <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-primary" />}
         </p>
-        <p className="truncate text-[11px] text-muted-foreground">
+        <p className="truncate text-xs text-muted-foreground">
           {compact(store.followers)} seguidores · ⭐ {store.rating}
         </p>
       </div>
@@ -151,8 +131,8 @@ export function StoreRow({ store }: { store: Store }) {
 
 export function SectionTitle({ title, action }: { title: string; action?: string }) {
   return (
-    <div className="mb-3 flex items-center justify-between gap-3 px-4">
-      <h2 className="text-base font-bold tracking-tight">{title}</h2>
+    <div className="mb-3 flex items-center justify-between gap-3">
+      <h2 className="text-lg font-bold tracking-tight">{title}</h2>
       {action && <span className="text-xs font-medium text-muted-foreground">{action}</span>}
     </div>
   );
