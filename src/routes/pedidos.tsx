@@ -28,7 +28,7 @@ function Orders() {
   const { orders } = useAppState();
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <PageHeader title="Meus pedidos" />
       <div className="space-y-3 p-4">
         {orders.map((o) => (

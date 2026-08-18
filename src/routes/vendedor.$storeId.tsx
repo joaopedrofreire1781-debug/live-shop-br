@@ -35,7 +35,7 @@ function SellerProfile() {
   const items = productsByStore(store.id);
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <div className="relative h-28 brand-gradient">
         <button
           onClick={() => navigate({ to: "/explorar" })}

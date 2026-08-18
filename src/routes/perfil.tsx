@@ -21,7 +21,7 @@ function Perfil() {
   const { orders, following, cart } = useAppState();
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <PageHeader title="Perfil" />
       <div className="space-y-5 p-4">
         <div className="flex items-center gap-3">

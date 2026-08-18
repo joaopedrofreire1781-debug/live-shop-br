@@ -20,7 +20,7 @@ function SellerDashboard() {
   const items = productsByStore("s-1");
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <PageHeader title="Área do vendedor" />
       <div className="space-y-5 p-4">
         <div className="rounded-2xl brand-gradient p-4 text-primary-foreground">

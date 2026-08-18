@@ -22,7 +22,7 @@ function CartPage() {
   const { subtotal, shipping, total } = cartTotals(cart);
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <PageHeader title="Carrinho" />
       {cart.length === 0 ? (
         <div className="space-y-4 p-10 text-center">

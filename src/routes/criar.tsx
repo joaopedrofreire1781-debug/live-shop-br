@@ -35,7 +35,7 @@ function CreateLive() {
   };
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <PageHeader title="Criar live" />
       <div className="space-y-5 p-4">
         <Field label="Título da live">
