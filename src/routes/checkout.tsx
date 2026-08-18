@@ -29,7 +29,7 @@ function Checkout() {
 
   if (cart.length === 0) {
     return (
-      <AppShell>
+      <AppShell className="max-w-2xl">
         <PageHeader title="Checkout" />
         <div className="space-y-4 p-10 text-center">
           <p className="text-sm text-muted-foreground">Nada para finalizar ainda.</p>
@@ -53,7 +53,7 @@ function Checkout() {
   };
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <PageHeader title="Checkout" />
       <div className="space-y-5 p-4">
         <section>

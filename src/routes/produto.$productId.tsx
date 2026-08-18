@@ -40,7 +40,7 @@ function ProductPage() {
     : 0;
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <div className="relative">
         <img
           src={product.images[img]}

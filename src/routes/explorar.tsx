@@ -40,7 +40,7 @@ function Explorar() {
 
   return (
     <AppShell>
-      <header className="sticky top-0 z-30 space-y-3 bg-background/95 px-4 pb-3 pt-4 backdrop-blur">
+      <header className="space-y-3 py-5">
         <div className="flex items-center gap-2 rounded-full bg-surface px-4 py-2.5">
           <Search className="h-4 w-4 text-muted-foreground" />
           <input
@@ -78,7 +78,7 @@ function Explorar() {
       {filteredLives.length > 0 && (
         <section className="pt-2">
           <SectionTitle title="Lives e vídeos" />
-          <div className="no-scrollbar flex gap-3 overflow-x-auto px-4 pb-4">
+          <div className="no-scrollbar flex gap-3 overflow-x-auto pb-4">
             {filteredLives.map((l) => (
               <LiveCard key={l.id} live={l} />
             ))}
@@ -88,13 +88,13 @@ function Explorar() {
 
       <section className="pb-6">
         <SectionTitle title="Produtos populares" action={`${filtered.length} itens`} />
-        <div className="grid grid-cols-2 gap-3 px-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {filtered.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
         {filtered.length === 0 && (
-          <p className="px-4 py-10 text-center text-sm text-muted-foreground">
+          <p className="py-10 text-center text-sm text-muted-foreground">
             Nada encontrado por aqui.
           </p>
         )}
@@ -102,7 +102,7 @@ function Explorar() {
 
       <section className="pb-8">
         <SectionTitle title="Vendedores populares" />
-        <div className="space-y-2 px-4">
+        <div className="space-y-2">
           {stores.map((s) => (
             <StoreRow key={s.id} store={s} />
           ))}

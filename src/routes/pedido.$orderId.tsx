@@ -22,7 +22,7 @@ function OrderConfirmed() {
   const order = getOrder(orderId);
 
   return (
-    <AppShell>
+    <AppShell className="max-w-2xl">
       <div className="flex flex-col items-center gap-4 px-6 pb-6 pt-16 text-center">
         <span className="grid h-20 w-20 place-items-center rounded-full bg-success/15">
           <CheckCircle2 className="h-10 w-10 text-success" />

@@ -117,6 +117,16 @@ export function SiteHeader() {
           </Link>
         </div>
       </div>
+
+      <div className="border-t border-border px-4 py-2.5 md:hidden">
+        <Link
+          to="/explorar"
+          className="flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-sm text-muted-foreground"
+        >
+          <Search className="h-4 w-4" />
+          Pesquisar produtos, vendedores ou lives...
+        </Link>
+      </div>
     </header>
   );
 }
