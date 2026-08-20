@@ -189,3 +189,51 @@
 @utility animate-bid {
   animation: bid-in 0.22s ease-out both;
 }
+
+@keyframes urgent-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@utility animate-urgent {
+  animation: urgent-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes scan-sweep {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@utility animate-scan {
+  animation: scan-sweep 4.5s linear infinite;
+}
+
+@keyframes bid-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    background-color: color-mix(in oklch, var(--color-primary) 14%, transparent);
+  }
+  60% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    background-color: transparent;
+  }
+}
+
+@utility animate-bid-enter {
+  animation: bid-enter 0.6s ease-out both;
+}
